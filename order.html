@@ -1,0 +1,154 @@
+<!doctype html5>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Place an Order</title>
+	<style> 	 	 
+     </style> 
+	 <script>
+		function myFunction() {
+		var x = document.getElementById("myTopnav");
+		if (x.className === "topnav") {
+		x.className += " responsive";
+		} else {
+		x.className = "topnav";
+		}
+		}
+	</script> 
+	 <link rel="stylesheet" type="text/css" href="css/default.css">
+	 <link rel="stylesheet" type="text/css" href="css/orderForm.css">
+
+</head>
+
+<body>
+	<header>
+		Pizza Palace
+	</header>
+	
+	<nav>
+		<ul id="myTopnav" class="topnav">
+			<li> <a href="index.html" title="Return to site main page">Main</a></li>
+			<li> <a href="menu.html" title="View current menu">Menu</a></li>
+			<li> <a href="order.html" title="Place an Order" class="viewing">Place Order</a></li>
+			<li> <a href="specials.html" title="View today's specials">Specials</a></li>
+			<li> <a href="opportunity.html" title="Employment opportunities">Opportunity</a></li>
+			<li> <a href="about.html" title="About our restaurant">About Us</a></li>
+			<li class="icon"> <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">&#9776;</a></li>
+		</ul>
+	</nav>
+	
+	<article> 		
+		<form name="menuorder" method="post" id="formbox" action="script/processform.php">
+		<fieldset> 
+			<legend>Place your order</legend>
+				<label>First name:</label>
+				<input type="text" name="firstname"
+					   required id="firstname"
+					   placeholder="Your first name">
+					   
+				<label>Last name:</label>
+				<input type="text" name="lastname"
+					   required id="lastname"
+					   placeholder="Your last name">
+					   
+				<label>Phone:</label>
+				<input type="tel" name="phone"
+					   title="(250) 999-9999" 
+					   required id="phone"
+					   pattern='[\(]\d{3}[\)]\s*\d{3}[\-]\d{4}'
+					   placeholder="(250) 999-9999">
+					   
+				<label>Credit card:</label>
+				<input type="text" name="credit" 
+					   required id="credit"
+					   pattern='[0-9]{4,6}'
+					   placeholder="9999">
+					   
+				<label>Expiry date(MM-YY):</label>
+				<input type="text" name="expiry" 
+					   title="Credit card expiry as MM-YY"
+					   required id="expiry"
+					   pattern='\d{2}[\-]\d{2}'
+					   placeholder="01-13">
+				<fieldset> 
+					<legend> Select type of pizza </legend>
+					<input type="radio" name="pizza" value="cheese" id="cheese" >
+					<label for="cheese"> Cheese </label>
+					<br>
+
+					<input type="radio" name="pizza"value="pepperoni" id="pepperoni" >
+					<label for="pepperoni"> Pepperoni </label>
+					<br>
+
+					<input type="radio" name="pizza"value="hawaiian" id="hawaiian">
+					<label for="hawaiian"> Hawaiian </label>
+				</fieldset>  <!-- Pizza type fieldset -->
+			
+				
+				<fieldset> 
+					<legend> Select size of pizza </legend>
+					<select name="size" id="size"> 
+						<option value="individual" selected="selected"> 
+							Individual 
+						</option> 
+
+						<option value="medium"> 
+							Medium 
+						</option> 
+
+						<option value="large"> 
+							Large 
+						</option>
+					</select>
+				</fieldset>
+			
+				<fieldset>
+					<legend> Select any toppings </legend>
+					<input type="checkbox" name="topping[]" value="tomato" id="tomato" > 
+					<label for="tomato"> Tomato Sauce </label> 
+					<br>
+
+					<input type="checkbox" name="topping[]" value="greenpepper" id="greenpepper" > 
+					<label for="greenpepper"> Green Pepper </label>
+					<br>
+
+					<input type="checkbox" name="topping[]" value="mushroom" id="mushroom" > 
+					<label for="mushroom"> Mushroom </label>
+					<br>
+
+					<input type="checkbox" name="topping[]" value="pepptopping" id="pepptopping" > 
+					<label for="pepptopping"> Pepperoni </label>
+					<br>
+
+					<input type="checkbox" name="topping[]" value="pineapple" id="pineapple" > 
+					<label for="pineapple"> Pineapple </label>
+				</fieldset>
+			
+				<fieldset> 
+					<legend> Select pizza quantity </legend>
+					<input type="number" id="quantity" name="quantity" value="1" min="1" max="20" required>
+				</fieldset>
+			
+				<fieldset>
+					<legend> Select order type </legend>
+					<input type="radio" name="order" value="pickup" id="pickup">
+					<label for="pickup"> Pickup </label>
+					<br>
+
+					<input type="radio" name="order" value="delivery" id="delivery" >
+					<label for="delivery"> Delivery </label> 					
+				</fieldset>
+			
+				<input type="submit" name="submit" value="Place order" >
+				<input type="reset" name="reset" value="Reset order" >
+		</fieldset>
+		</form>
+	</article>
+	
+	<footer>
+		Copyright &copy; 2018
+	</footer>
+	
+</body>
+
+</html>
